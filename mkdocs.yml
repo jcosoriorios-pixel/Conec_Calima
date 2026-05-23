@@ -10,5 +10,13 @@ nav:
   - Arquitectura: arquitectura.md
   - API Interactiva: api.md
   - Memoria Técnica (ADRs):
-    - 001 Selección de Stack: adrs/ADR-001-Stack.md
-    - 002 Estrategia Git: adrs/ADR-002-Estrategia-Git.md
+    - 001 Uso de Lovable para el Desarrollo: adrs/ADR-001.md
+    - 002 Adopción del Enfoque Comunitario: adrs/ADR-002.md
+    - 003 Implementación de Supbase: adrs/ADR-003.md
+    - 004 Verificación de Usuarios: adrs/ADR-004.md
+    - 005 Renderizado de Mapas: adrs/ADR-005.md
+    - 006 Implementación de Paleta: adrs/ADR-006.md
+    - 007 Estrategia de Caché Local: adrs/ADR-007.md
+    - 008 Aislamiento del Canal de Avisos: adrs/ADR-008.md
+    - 009 Adopción estricta de Kanban: adrs/ADR-009.md
+    - 010 Arquitectura de Puntos de Reputación: adrs/ADR-010.md
