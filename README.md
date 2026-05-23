@@ -1,6 +1,7 @@
-# rmcalima
+# Conecta Calima
+![Repositorio](https://camo.githubusercontent.com/b4ba68fb7704a954feb95308413562deb49e74feb076302abb9583785bc65774/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3138313731373f7374796c653d666c6174266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465)
 
-# WIKI INTERACTIVA : https://jcosoriorios-pixel.github.io/Conec_Calima/
+## **WIKI INTERACTIVA:** https://jcosoriorios-pixel.github.io/Conec_Calima/
 
 
 # Reto 3: Movilidad e Información Municipal - Calima El Darién 

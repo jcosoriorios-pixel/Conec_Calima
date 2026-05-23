@@ -8,6 +8,7 @@ theme:
 nav:
   - Inicio: index.md
   - Arquitectura: arquitectura.md
+  - Manual: manual.md
   - API Interactiva: api.md
   - Memoria Técnica (ADRs):
     - 001 Uso de Lovable para el Desarrollo: adrs/ADR-001.md
