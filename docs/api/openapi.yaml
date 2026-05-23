@@ -1,25 +1,132 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
-  title: OpenSource Store API
-  description: Interfaz para la gestión de ventas locales.
+  title: API Conecta Calima
+  description: >
+    Backend para la plataforma comunitaria de movilidad en tiempo real y 
+    agenda cultural de Calima El Darién. Proyecto desarrollado para el 
+    Reto 3 de la Hackatón Académica 2026.
   version: 1.0.0
+servers:
+  - url: https://api.conectacalima.gov.co/v1
+    description: Servidor de Producción
+  - url: http://localhost:3000/v1
+    description: Servidor de Desarrollo
+
 paths:
-  /productos:
+  # --- MÓDULO DE MOVILIDAD (REPORTES EN TIEMPO REAL) ---
+  /reportes:
     get:
-      summary: Lista catálogo institucional.
+      summary: Obtener reportes de movilidad activos
+      description: Retorna una lista de incidentes viales (tráfico, bloqueos, estado de la vía a Buga/Loboguerrero o entradas al Lago).
       responses:
         '200':
-          description: OK
-  /pedidos:
+          description: Lista de reportes obtenida con éxito.
     post:
-      summary: Registra una nueva compra.
-      security:
-        - bearerAuth: []
+      summary: Crear un nuevo reporte de movilidad
+      description: Permite a los usuarios o comercios reportar un estado en la vía.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reporte'
       responses:
         '201':
-          description: Creado
+          description: Reporte creado exitosamente.
+
+  /reportes/{id}/verificar:
+    post:
+      summary: Validar un reporte existente
+      description: Endpoint exclusivo para que los comercios fijos (nodos) aumenten la veracidad de un reporte.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Reporte verificado correctamente.
+
+  # --- MÓDULO CULTURAL Y COMERCIO ---
+  /eventos:
+    get:
+      summary: Listar agenda cultural y avisos municipales
+      description: Obtiene los eventos programados en Calima El Darién.
+      parameters:
+        - name: categoria
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [cultural, municipal, comercial]
+      responses:
+        '200':
+          description: Lista de eventos.
+
+  /comercios:
+    get:
+      summary: Obtener los comercios verificadores (nodos)
+      description: Retorna la ubicación e información de los estancos y locales aliados que validan la información.
+      responses:
+        '200':
+          description: Lista de comercios aliados.
+
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
+  schemas:
+    Reporte:
+      type: object
+      required:
+        - tipo_incidente
+        - ubicacion
+        - estado
+      properties:
+        id:
+          type: string
+          example: "rep_9876"
+        tipo_incidente:
+          type: string
+          enum: [trafico_pesado, via_cerrada, accidente, transitable]
+          example: "trafico_pesado"
+        ubicacion:
+          type: string
+          example: "Entrada 5 al Lago Calima"
+        coordenadas:
+          type: object
+          properties:
+            latitud:
+              type: number
+              example: 3.8912
+            longitud:
+              type: number
+              example: -76.4854
+        descripcion:
+          type: string
+          example: "Alto flujo vehicular ingresando por el fin de semana festivo."
+        verificado_por_comercio:
+          type: boolean
+          example: true
+        creado_en:
+          type: string
+          format: date-time
+          example: "2026-05-23T18:30:00Z"
+
+    Evento:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "evt_123"
+        titulo:
+          type: string
+          example: "Festival del Viento y el Lago"
+        descripcion:
+          type: string
+          example: "Presentaciones culturales en la plaza principal."
+        fecha_inicio:
+          type: string
+          format: date-time
+          example: "2026-08-15T14:00:00Z"
+        lugar:
+          type: string
+          example: "Plaza Principal de Calima"
