@@ -1,7 +1,10 @@
-site_name: DevDocs Hub - Tienda OS
-site_url: https://carlrodr15.github.io/docs-tienda-os_ejemplo/
+site_name: Conecta Calima
+site_description: Documentación del proyecto Conecta Calima
+site_url: https://jcosoriorios-pixel.github.io/Conec_Calima/
+repo_url: https://github.com/jcosoriorios-pixel/Conec_Calima
+repo_name: GitHub
 theme:
-  name: material # Estilo moderno de industria
+  name: material
   palette:
     primary: indigo
 
