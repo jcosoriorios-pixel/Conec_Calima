@@ -1,8 +1,50 @@
 @startuml
-package "Tienda OS" {
-  [Frontend React] --> [API Gateway]
-  [API Gateway] --> [Servicio Inventario]
-  [API Gateway] --> [Servicio Pagos]
-  [Servicio Inventario] ..> [PostgreSQL]
+title Calima Conecta - Diagrama de Casos de Uso
+
+left to right direction
+
+actor "Turista" as turista
+actor "Residente Verificado" as residente
+actor "Administrador Municipal" as admin
+actor "Alcaldía de Calima" as alcaldia
+
+rectangle "Sistema Calima Conecta" {
+
+  usecase "Consultar mapa de incidentes" as UC1
+  usecase "Ver detalles de incidente" as UC2
+  usecase "Reportar incidente en vía" as UC3
+  usecase "Validar reportes de usuarios" as UC4
+  usecase "Confirmar incidente (consenso)" as UC5
+  usecase "Recibir notificaciones" as UC6
+  usecase "Ver avisos oficiales" as UC7
+  usecase "Gestionar usuarios y roles" as UC8
+  usecase "Gestionar eventos culturales" as UC9
+  usecase "Monitorear estadísticas" as UC10
 }
+
+' Relaciones Turista
+turista --> UC1
+turista --> UC2
+turista --> UC6
+
+' Relaciones Residente
+residente --> UC3
+residente --> UC4
+residente --> UC5
+residente --> UC6
+
+' Relaciones Admin
+admin --> UC7
+admin --> UC8
+admin --> UC9
+admin --> UC10
+
+' Alcaldía
+alcaldia --> UC7
+
+' Relaciones internas
+UC4 --> UC5
+UC5 --> UC6
+UC3 --> UC6
+
 @enduml
