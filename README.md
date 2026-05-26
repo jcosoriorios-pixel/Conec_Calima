@@ -1,3 +1,23 @@
+# 🚦 Conecta Calima
+
+![OpenAPI](https://img.shields.io/badge/OpenAPI-3.0-green)
+![API REST](https://img.shields.io/badge/API-REST-blue)
+![MkDocs](https://img.shields.io/badge/MkDocs-Material-darkblue)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Activo-success)
+![Estado](https://img.shields.io/badge/Estado-En%20Desarrollo-orange)
+![Hackathon](https://img.shields.io/badge/Hackatón-2026-purple)
+![Documentación](https://img.shields.io/badge/Documentación-Completa-brightgreen)
+![YAML](https://img.shields.io/badge/YAML-OpenAPI-red)
+![Licencia](https://img.shields.io/badge/Licencia-Académica-lightgrey)
+![Version](https://img.shields.io/badge/Version-1.0.0-blueviolet)
+
+## 🌎 Plataforma comunitaria de movilidad y cultura
+
+Proyecto académico orientado a la gestión de movilidad en tiempo real y agenda cultural para Calima El Darién.
+
+### 🔗 Documentación API
+
+https://jcosoriorios-pixel.github.io/Conec_Calima/api/
 # Conecta Calima
 ![Repositorio](https://camo.githubusercontent.com/b4ba68fb7704a954feb95308413562deb49e74feb076302abb9583785bc65774/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3138313731373f7374796c653d666c6174266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465)
 ![Repositorio](https://camo.githubusercontent.com/b4ba68fb7704a954feb95308413562deb49e74feb076302abb9583785bc65774/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3138313731373f7374796c653d666c6174266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465)
