@@ -24,3 +24,9 @@ nav:
     - 008 Aislamiento del Canal de Avisos: adrs/ADR-008.md
     - 009 Adopción estricta de Kanban: adrs/ADR-009.md
     - 010 Arquitectura de Puntos de Reputación: adrs/ADR-010.md
+
+markdown_extensions:
+  - attr_list
+
+extra_javascript:
+  - https://unpkg.com/redoc@next/bundles/redoc.standalone.js
