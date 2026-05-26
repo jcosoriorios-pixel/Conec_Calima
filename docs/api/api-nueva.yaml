@@ -1,111 +1,214 @@
 openapi: 3.0.3
+
 info:
-  title: API Conecta Calima
-  description: >
-    Backend para la plataforma comunitaria de movilidad en tiempo real y 
-    agenda cultural de Calima El Darién. Proyecto desarrollado para el 
-    Reto 3 de la Hackatón Académica 2026.
-  version: 1.0.0
+  title: "🚦 API Conecta Calima"
+  description: |
+    ## 🌎 Plataforma Comunitaria de Movilidad y Cultura
+
+    Backend oficial de **Conecta Calima**, una plataforma diseñada para:
+
+    - 🚗 Reportar movilidad en tiempo real
+    - 🛣️ Informar estado de las vías
+    - 🎭 Gestionar eventos culturales
+    - 🏪 Validar información mediante comercios aliados
+
+    Proyecto desarrollado para el **Reto 3 - Hackatón Académica 2026**.
+  version: "1.0.0"
+  contact:
+    name: Equipo Conecta Calima
+    email: soporte@conectacalima.gov.co
+
 servers:
   - url: https://api.conectacalima.gov.co/v1
-    description: Servidor de Producción
+    description: "🌐 Servidor de Producción"
+
   - url: http://localhost:3000/v1
-    description: Servidor de Desarrollo
+    description: "💻 Servidor de Desarrollo"
+
+tags:
+  - name: 🚗 Movilidad
+    description: Endpoints relacionados con reportes viales y tráfico.
+
+  - name: 🎭 Eventos
+    description: Agenda cultural y avisos municipales.
+
+  - name: 🏪 Comercios
+    description: Comercios verificadores aliados.
 
 paths:
-  # --- MÓDULO DE MOVILIDAD (REPORTES EN TIEMPO REAL) ---
+
   /reportes:
+
     get:
+      tags:
+        - 🚗 Movilidad
+
       summary: Obtener reportes de movilidad activos
-      description: Retorna una lista de incidentes viales (tráfico, bloqueos, estado de la vía a Buga/Loboguerrero o entradas al Lago).
+
+      description: |
+        Retorna una lista de incidentes viales en tiempo real:
+
+        - 🚧 Bloqueos
+        - 🚗 Tráfico pesado
+        - ⚠️ Accidentes
+        - ✅ Vías transitables
+
       responses:
         '200':
-          description: Lista de reportes obtenida con éxito.
+          description: Lista de reportes obtenida correctamente.
+
     post:
+      tags:
+        - 🚗 Movilidad
+
       summary: Crear un nuevo reporte de movilidad
-      description: Permite a los usuarios o comercios reportar un estado en la vía.
+
+      description: |
+        Permite a usuarios o comercios reportar:
+
+        - Estado de vías
+        - Congestión vehicular
+        - Accidentes
+        - Flujo turístico
+
       requestBody:
         required: true
+
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Reporte'
+
       responses:
         '201':
           description: Reporte creado exitosamente.
 
   /reportes/{id}/verificar:
+
     post:
+      tags:
+        - 🚗 Movilidad
+
       summary: Validar un reporte existente
-      description: Endpoint exclusivo para que los comercios fijos (nodos) aumenten la veracidad de un reporte.
+
+      description: |
+        Endpoint exclusivo para comercios aliados que validan reportes comunitarios.
+
       parameters:
         - name: id
           in: path
           required: true
+
           schema:
             type: string
+
       responses:
         '200':
-          description: Reporte verificado correctamente.
+          description: Reporte validado correctamente.
 
-  # --- MÓDULO CULTURAL Y COMERCIO ---
   /eventos:
+
     get:
+      tags:
+        - 🎭 Eventos
+
       summary: Listar agenda cultural y avisos municipales
-      description: Obtiene los eventos programados en Calima El Darién.
+
+      description: |
+        Obtiene eventos programados en Calima El Darién:
+
+        - 🎶 Festivales
+        - 🏛️ Eventos municipales
+        - 🛍️ Actividades comerciales
+
       parameters:
         - name: categoria
           in: query
           required: false
+
           schema:
             type: string
-            enum: [cultural, municipal, comercial]
+            enum:
+              - cultural
+              - municipal
+              - comercial
+
       responses:
         '200':
-          description: Lista de eventos.
+          description: Lista de eventos obtenida correctamente.
 
   /comercios:
+
     get:
-      summary: Obtener los comercios verificadores (nodos)
-      description: Retorna la ubicación e información de los estancos y locales aliados que validan la información.
+      tags:
+        - 🏪 Comercios
+
+      summary: Obtener comercios verificadores
+
+      description: |
+        Retorna comercios aliados que ayudan a validar reportes:
+
+        - 🏪 Estancos
+        - ☕ Cafeterías
+        - 🛒 Locales aliados
+
       responses:
         '200':
           description: Lista de comercios aliados.
 
 components:
+
   schemas:
+
     Reporte:
       type: object
+
       required:
         - tipo_incidente
         - ubicacion
-        - estado
+
       properties:
+
         id:
           type: string
           example: "rep_9876"
+
         tipo_incidente:
           type: string
-          enum: [trafico_pesado, via_cerrada, accidente, transitable]
+
+          enum:
+            - trafico_pesado
+            - via_cerrada
+            - accidente
+            - transitable
+
           example: "trafico_pesado"
+
         ubicacion:
           type: string
           example: "Entrada 5 al Lago Calima"
+
         coordenadas:
           type: object
+
           properties:
+
             latitud:
               type: number
               example: 3.8912
+
             longitud:
               type: number
               example: -76.4854
+
         descripcion:
           type: string
           example: "Alto flujo vehicular ingresando por el fin de semana festivo."
+
         verificado_por_comercio:
           type: boolean
           example: true
+
         creado_en:
           type: string
           format: date-time
@@ -113,20 +216,26 @@ components:
 
     Evento:
       type: object
+
       properties:
+
         id:
           type: string
           example: "evt_123"
+
         titulo:
           type: string
           example: "Festival del Viento y el Lago"
+
         descripcion:
           type: string
           example: "Presentaciones culturales en la plaza principal."
+
         fecha_inicio:
           type: string
           format: date-time
           example: "2026-08-15T14:00:00Z"
+
         lugar:
           type: string
           example: "Plaza Principal de Calima"
