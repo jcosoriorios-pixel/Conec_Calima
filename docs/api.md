@@ -2,19 +2,7 @@
 
 
 
-<iframe
-
-&#x20; src="https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/jcosoriorios-pixel/Conec\_Calima/main/docs/api/api-nueva.yaml"
-
-&#x20; width="100%"
-
-&#x20; height="900px"
-
-&#x20; frameborder="0">
-
-</iframe>
-
-
+\[Ver especificación OpenAPI](https://raw.githubusercontent.com/jcosoriorios-pixel/Conec\_Calima/main/docs/api/api-nueva.yaml)
 
 \# 🔌 Contrato de la API
 
