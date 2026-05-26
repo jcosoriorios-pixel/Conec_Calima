@@ -2,25 +2,35 @@
 
 
 
+\## 📄 Especificación OpenAPI
+
+
+
 \[Ver especificación OpenAPI](https://raw.githubusercontent.com/jcosoriorios-pixel/Conec\_Calima/main/docs/api/api-nueva.yaml)
 
-\# 🔌 Contrato de la API
+
+
+\---
 
 
 
-\## Información General
+\## ℹ️ Información General
 
 
 
-\- API: Conecta Calima
+\- \*\*API:\*\* Conecta Calima
 
-\- Versión: 1.0.0
+\- \*\*Versión:\*\* 1.0.0
 
-\- Tipo: OpenAPI 3.0.3
+\- \*\*Tipo:\*\* OpenAPI 3.0.3
 
 
 
-\## Endpoints principales
+\---
+
+
+
+\## 🚗 Endpoints principales
 
 
 
@@ -44,7 +54,7 @@ Permite validar un reporte existente.
 
 \### GET /eventos
 
-Lista eventos culturales y municipales.
+Lista agenda cultural y avisos municipales.
 
 
 
@@ -54,7 +64,11 @@ Obtiene comercios verificadores.
 
 
 
-\## Modelo Reporte
+\---
+
+
+
+\## 📦 Modelo Reporte
 
 
 
@@ -74,7 +88,11 @@ Obtiene comercios verificadores.
 
 
 
-\## Modelo Evento
+\---
+
+
+
+\## 🎭 Modelo Evento
 
 
 
